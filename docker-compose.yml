@@ -2,15 +2,15 @@ version: '3.8'
 
 services:
   asiaticesports:
-    image: -development:lastest
+    image: development:latest
     ports:
       - "3000:3000"
     restart: always
     expose:
       - 3005  # Add more ports if needed
     volumes:
-      - -development-data:/app
+      - development-data:/app
       # Add more volumes if needed
 
 volumes: 
-  -development-data:
+  development-data:
