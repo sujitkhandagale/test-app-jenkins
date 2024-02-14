@@ -4,6 +4,18 @@ FROM node:18-alpine
 # Set the working directory
 WORKDIR /app
 
+# Set environment variables
+ENV NODE_ENV=production
+
+# docker image name and tag
+ARG DOCKER_IMAGE_NAME="asiaticesports"
+ARG DOCKER_IMAGE_TAG="latest"
+
+# Add labels
+# LABEL maintainer="Your Name <your.email@example.com>"
+# LABEL version="1.0"
+# LABEL description="Description of your application."
+
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
