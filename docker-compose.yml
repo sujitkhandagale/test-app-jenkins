@@ -16,7 +16,7 @@ services:
           cpus: '0.5'   # Limit to 0.5 CPU cores
           memory: '1024M'  # Limit to 512 megabytes of RAM
     expose:
-      - "3005"
+      - "3000"
     volumes:
       - asiaticesports-frontend-development-data:/app
     networks:
