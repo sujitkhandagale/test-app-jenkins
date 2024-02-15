@@ -4,6 +4,8 @@ pipeline {
     environment {
         Docker_ImageName = "sujitkh94/asiaticesports"
         Docker_ImageTag = "latest"
+        Docker_Container_Name = "asiaticesports-development"
+        Docker_Container_Port = "3005"
     }
 
     stages {
@@ -11,8 +13,8 @@ pipeline {
             steps {
                 script {
                     // Stop and remove the container only if it exists
-                    sh "docker stop ${env.Docker_ImageName} || true"
-                    sh "docker rm ${env.Docker_ImageName} || true"
+                    sh "docker stop ${env.Docker_Container_Name} || true"
+                    sh "docker rm ${env.Docker_Container_Name} || true"
                     sh "docker rmi ${env.Docker_ImageName}:${env.Docker_ImageTag} || true"
                 }
             }
