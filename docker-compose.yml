@@ -5,6 +5,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: asiaticesports
+    image: asiaticesports:development
+    networks:
+      - development
     ports:
       - "3000:3000"
     restart: always
