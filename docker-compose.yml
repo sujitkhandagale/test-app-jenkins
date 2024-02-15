@@ -12,8 +12,9 @@ services:
     restart: always
     expose:
       - 3000
-    volumes: 
-      - asiaticesports-frontend-development-data:/app
+    volumes:
+      - asiaticesports-frontend-development-data
+      - .:/app
     networks: 
       - development
 
