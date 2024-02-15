@@ -6,7 +6,17 @@ pipeline {
         Docker_ImageTag = "latest"
     }
 
-    stages {
+    stages { 
+    // remove old docker image and its running container 
+        stage('Cleanup') {
+            steps {
+                script {
+                    sh "docker stop ${env.Docker_ImageName}"
+                    sh "docker rm ${env.Docker_ImageName}"
+                    sh "docker rmi ${env.Docker_ImageName}:${env.Docker_ImageTag}"
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {
@@ -14,15 +24,17 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Run Docker Container') {
             steps {
-                echo 'Testing..'
+                script {
+                    sh "docker run -d --name -p 3000:3000 ${env.Docker_ImageName} ${env.Docker_ImageName}:${env.Docker_ImageTag}"
+                }
             }
-        }
-        stage('Deploy') {
+        } 
+        stage('clear cache') {
             steps {
-                echo 'Deploying....'
-            }
+                cleanWs()
+            } 
         }
     }
 }
