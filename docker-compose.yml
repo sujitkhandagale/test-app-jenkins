@@ -8,13 +8,13 @@ services:
     container_name: asiaticesports-frontend-development
     image: asiaticesports-frontend:development
     ports:
-      - "3005:3000"  # Map host port 3005 to container port 3000
+      - "3005:3000" 
     restart: always
     deploy:
       resources:
         limits:
-          cpus: '0.5'   # Limit to 0.5 CPU cores
-          memory: '1024M'  # Limit to 512 megabytes of RAM
+          cpus: '0.5'   
+          memory: '1024M' 
     volumes:
       - asiaticesports-frontend-development-data:/app
     networks:
