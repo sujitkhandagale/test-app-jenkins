@@ -32,23 +32,23 @@ pipeline {
             }
         }
         
-        stage('Build Docker Image') {
+        stage('Build And Run Docker Image') {
             steps {
                 script {
                     // Build the Docker image
-                    sh "docker-compose build"
+                    sh "docker-compose up --build -d"
                 }
             }
         }
         
-        stage('Run Docker Container') {
-            steps {
-                script {
-                    // Start the Docker containers defined in docker-compose.yml
-                    sh "docker-compose up -d"
-                }
-            }
-        }
+        // stage('Run Docker Container') {
+        //     steps {
+        //         script {
+        //             // Start the Docker containers defined in docker-compose.yml
+        //             sh "docker-compose up -d"
+        //         }
+        //     }
+        // }
         
         stage('clear cache') {
             steps {
