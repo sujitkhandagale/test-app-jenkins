@@ -6,21 +6,22 @@ pipeline {
     }
 
     stages {
-        // stage('Test Code') {
-        //     steps {
-        //         script {
-        //             sh "npm install"
-        //             sh "npm run build" 
-        //         }
-        //     }
-        // }
+        stage('Test Code') {
+            steps {
+                script {
+                    sh "npm install"
+                    sh "npm run build"
+                }
+            }
+        }
+        
         
         stage('Cleanup') {
             steps {
                 script {
                     // Stop and remove containers managed by Docker Compose
                     sh "docker-compose down || true"
-                    // clean the port also  
+                    // clean the port also
                 }
             }
         }
