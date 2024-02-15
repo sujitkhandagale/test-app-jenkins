@@ -11,7 +11,7 @@ services:
       - "3000:3000"
     restart: always
     deploy:
-        resources:
+      resources:
         limits:
           cpus: '0.5'   # Limit to 0.5 CPU cores
           memory: '1024M'  # Limit to 512 megabytes of RAM
@@ -19,14 +19,14 @@ services:
           cpus: '0.2'   # Reserve at least 0.2 CPU cores
           memory: '256M'  # Reserve at least 256 megabytes of RAM
     expose:
-      - 3005
+      - "3005"
     volumes:
-      - asiaticesports-frontend-development-data
-      - .:/app
-    networks: 
+      - asiaticesports-frontend-development-data:/app
+    networks:
       - development
 
-volumes: 
+volumes:
   asiaticesports-frontend-development-data:
-networks: 
+
+networks:
   development:
