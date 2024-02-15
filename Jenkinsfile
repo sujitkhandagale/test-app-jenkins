@@ -1,13 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        Docker_ImageName = "sujitkh94/asiaticesports"
-        Docker_ImageTag = "latest"
-        Docker_Container_Name = "asiaticesports-development"
-        Docker_Container_Port = "3005"
-    }
-
     tools {
         nodejs "21"
     }
