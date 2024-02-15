@@ -9,6 +9,14 @@ pipeline {
     }
 
     stages {
+         stage('Test Code') {
+            steps {
+                script {
+                    sh "npm install"
+                    sh "npm run build" 
+                }
+            }
+        }
         stage('Cleanup') {
             steps {
                 script {
