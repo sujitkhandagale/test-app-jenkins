@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     // Stop and remove containers managed by Docker Compose
-                    sh "docker-compose down --remove-orphans || true"
+                    sh "docker-compose down || true"
                     // clean the port also  
                 }
             }
