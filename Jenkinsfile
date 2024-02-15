@@ -8,6 +8,10 @@ pipeline {
         Docker_Container_Port = "3005"
     }
 
+    tools {
+        nodejs "21"
+    }
+
     stages {
          stage('Test Code') {
             steps {
