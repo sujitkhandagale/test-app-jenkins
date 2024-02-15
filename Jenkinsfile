@@ -29,7 +29,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh "docker run -d --name ${env.Docker_ImageName} -p 3000:3000 ${env.Docker_ImageName}:${env.Docker_ImageTag}"
+                    sh "docker run -d --name ${env.Docker_Container_Name} -p 3000:3000 ${env.Docker_ImageName}:${env.Docker_ImageTag}"
                 }
             }
         }
