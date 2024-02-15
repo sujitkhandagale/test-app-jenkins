@@ -30,19 +30,11 @@ pipeline {
                 script {
                     // Build the Docker image
                     sh "docker-compose up --build -d"
+                    // Check for dangling images
+                    sh "docker images -f dangling=true"
                 }
             }
         }
-        
-        // stage('Run Docker Container') {
-        //     steps {
-        //         script {
-        //             // Start the Docker containers defined in docker-compose.yml
-        //             sh "docker-compose up -d"
-        //         }
-        //     }
-        // }
-        
         stage('clear cache') {
             steps {
                 cleanWs()
