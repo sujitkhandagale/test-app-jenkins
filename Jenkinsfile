@@ -1,15 +1,18 @@
 pipeline {
     agent any
-    Docker_ImageName = "sujitkh94/asiaticesports"
-    Docker_ImageTag = "latest"  
+
+    environment {
+        Docker_ImageName = "sujitkh94/asiaticesports"
+        Docker_ImageTag = "latest"
+    }
 
     stages {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t ${Docker_ImageName}:${Docker_ImageTag} ."
+                    sh "docker build -t ${env.Docker_ImageName}:${env.Docker_ImageTag} ."
                 }
-            } 
+            }
         }
         stage('Test') {
             steps {
