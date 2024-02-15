@@ -7,10 +7,9 @@ services:
       - "3000:3000"
     restart: always
     expose:
-      - 3005  # Add more ports if needed
+      - 3005
     volumes: 
       - development-data:/app
-      # Add more volumes if needed
 
 volumes: 
   development-data:

@@ -13,37 +13,43 @@ pipeline {
     }
 
     stages {
-         stage('Test Code') {
-            steps {
-                script {
-                    sh "npm install"
-                    sh "npm run build" 
-                }
-            }
-        }
+        // stage('Test Code') {
+        //     steps {
+        //         script {
+        //             sh "npm install"
+        //             sh "npm run build" 
+        //         }
+        //     }
+        // }
+        
         stage('Cleanup') {
             steps {
                 script {
-                    sh "docker stop ${env.Docker_Container_Name} || true"
-                    sh "docker rm ${env.Docker_Container_Name} || true"
-                    sh "docker rmi ${env.Docker_ImageName}:${env.Docker_ImageTag} || true"
+                    // Stop and remove containers managed by Docker Compose
+                    sh "docker-compose down --remove-orphans || true"
+                    // clean the port also  
                 }
             }
         }
+        
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t ${env.Docker_ImageName}:${env.Docker_ImageTag} ."
+                    // Build the Docker image
+                    sh "docker-compose build"
                 }
             }
         }
+        
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh "docker run -d --name ${env.Docker_Container_Name} -p 3000:3000 ${env.Docker_ImageName}:${env.Docker_ImageTag}"
+                    // Start the Docker containers defined in docker-compose.yml
+                    sh "docker-compose up -d"
                 }
             }
         }
+        
         stage('clear cache') {
             steps {
                 cleanWs()
