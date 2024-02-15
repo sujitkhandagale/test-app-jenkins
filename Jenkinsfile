@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
-                    sh "docker-compose up --build"
+                    sh "docker-compose up --build -d"
                 }
             }
         }
