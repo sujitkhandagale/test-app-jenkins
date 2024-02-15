@@ -8,16 +8,13 @@ services:
     container_name: asiaticesports-frontend-development
     image: asiaticesports-frontend:development
     ports:
-      - "3005:3005"
+      - "3000:3005"
     restart: always
     deploy:
       resources:
         limits:
           cpus: '0.5'   # Limit to 0.5 CPU cores
           memory: '1024M'  # Limit to 512 megabytes of RAM
-        reservations:
-          cpus: '0.2'   # Reserve at least 0.2 CPU cores
-          memory: '256M'  # Reserve at least 256 megabytes of RAM
     expose:
       - "3005"
     volumes:
