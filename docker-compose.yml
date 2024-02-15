@@ -2,12 +2,14 @@ version: '3.8'
 
 services:
   asiaticesports:
-    image: sujitkh94/asiaticesports:development
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     restart: always
     expose:
-      - 3005
+      - 3000
     volumes: 
       - development-data:/app
 
