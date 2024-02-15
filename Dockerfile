@@ -8,7 +8,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # docker image name and tag
-ARG DOCKER_IMAGE_NAME="sujitkh94/asiaticesports"
+ARG DOCKER_IMAGE_NAME="asiaticesports-frontend"
 ARG DOCKER_IMAGE_TAG="development"
 
 # Add labels
