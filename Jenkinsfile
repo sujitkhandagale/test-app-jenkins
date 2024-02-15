@@ -12,7 +12,6 @@ pipeline {
         stage('Cleanup') {
             steps {
                 script {
-                    // Stop and remove the container only if it exists
                     sh "docker stop ${env.Docker_Container_Name} || true"
                     sh "docker rm ${env.Docker_Container_Name} || true"
                     sh "docker rmi ${env.Docker_ImageName}:${env.Docker_ImageTag} || true"
