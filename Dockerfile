@@ -1,7 +1,7 @@
 # Use an official Node.js runtime as a base image
 FROM node:18-alpine
 
-WORKDIR /usr/src/docker-react-sample
+WORKDIR /app
 
 ENV NODE_ENV=production
 

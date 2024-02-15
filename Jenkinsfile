@@ -31,7 +31,7 @@ pipeline {
                     // Build the Docker image
                     sh "docker-compose up --build -d"
                     // Check for dangling images
-                    sh "docker images -f dangling=true"
+                    sh "docker image prune -a --force"
                 }
             }
         }
